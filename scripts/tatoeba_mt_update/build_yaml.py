@@ -15,6 +15,8 @@ with open(".tmp_hf_config_string") as cs:
     config_strings = cs.readline()
     for config_string in config_strings[1:].split('|'):
         langpair, setname = config_string.split('+')
+        langpair = langpair.strip()
+        setname = setname.strip()
         for l in langpair.split('-'):
             languages.add(l[:3])
         if langpair not in configs:
